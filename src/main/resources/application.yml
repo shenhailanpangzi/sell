@@ -1,0 +1,15 @@
+spring:
+  datasource:
+    driver-class-name: com.mysql.jdbc.Driver
+    username: yh
+    password: yh
+    url: jdbc:mysql://localhost/yh?characterEncoding=utf-8&useSSL=false #连接mysql忽略ssl安全协议
+  jpa:
+    show-sql: true
+server:
+  context-path: /sell
+#日志配置
+logging:
+  level: debug
+#  pattern:
+#    console:
