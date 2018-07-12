@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 /**
  * 买家商品
- * Created by 廖师兄
+ * Created by yanghao
  * 2017-05-12 14:08
  */
 @RestController
