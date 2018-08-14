@@ -14,7 +14,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * @Description：
+ * @Description：购物车service
  * @Author:yanghao
  * @Date：2018/6/6 15:37
  */

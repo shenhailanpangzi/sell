@@ -4,11 +4,11 @@
 	<modelVersion>4.0.0</modelVersion>
 
 	<groupId>com.lanpang</groupId>
-	<artifactId>sell</artifactId>
+	<artifactId>mysell</artifactId>
 	<version>0.0.1-SNAPSHOT</version>
 	<packaging>jar</packaging>
 
-	<name>sell</name>
+	<name>mysell</name>
 	<description>Demo project for Spring Boot</description>
 
 	<parent>
@@ -51,7 +51,10 @@
 			<artifactId>lombok</artifactId>
 			<version>1.16.10</version>
 		</dependency>
-
+		<dependency>
+			<groupId>com.google.code.gson</groupId>
+			<artifactId>gson</artifactId>
+		</dependency>
 
 	</dependencies>
 

@@ -6,6 +6,8 @@ spring:
     url: jdbc:mysql://localhost/yh?characterEncoding=utf-8&useSSL=false #连接mysql忽略ssl安全协议
   jpa:
     show-sql: true
+#  jackson:
+#    default-property-inclusion: non_null  #为所有返回参数添加@JsonInclude(JsonInclude.Include.NON_NULL)
 server:
   context-path: /sell
 #日志配置

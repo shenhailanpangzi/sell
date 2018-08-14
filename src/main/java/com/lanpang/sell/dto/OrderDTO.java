@@ -1,18 +1,21 @@
 package com.lanpang.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonInclude;
+import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.lanpang.sell.dataobject.OrderDetail;
+import com.lanpang.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 
 import java.math.BigDecimal;
 import java.util.Date;
 import java.util.List;
 
-/**
+/**订单对象
  * Created by 廖师兄
  * 2017-06-11 18:30
  */
 @Data
-//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)
+//@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)//旧用法
 //@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
 
@@ -41,11 +44,11 @@ public class OrderDTO {
     private Integer payStatus;
 
     /** 创建时间. */
-//    @JsonSerialize(using = Date2LongSerializer.class)
+    @JsonSerialize(using = Date2LongSerializer.class)//
     private Date createTime;
 
     /** 更新时间. */
-//    @JsonSerialize(using = Date2LongSerializer.class)
+    @JsonSerialize(using = Date2LongSerializer.class)
     private Date updateTime;
 
     //订单详情列表

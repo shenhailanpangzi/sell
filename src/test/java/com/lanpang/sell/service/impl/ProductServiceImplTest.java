@@ -17,7 +17,7 @@ import java.util.List;
 import static org.junit.Assert.*;
 
 /**
- * @Description：
+ * @Description：商品service
  * @Author:yanghao
  * @Date：2018/6/6 16:11
  */
@@ -39,6 +39,10 @@ public class ProductServiceImplTest {
         Assert.assertNotEquals(0, productInfoList.size());
     }
 
+    /**
+     * 分页查询所有商品
+     * @throws Exception
+     */
     @Test
     public void findAll() throws Exception {
         PageRequest request = new PageRequest(0, 2);
@@ -47,6 +51,10 @@ public class ProductServiceImplTest {
         Assert.assertNotEquals(0, productInfoPage.getTotalElements());
     }
 
+    /**
+     * 上传商品
+     * @throws Exception
+     */
     @Test
     public void save() throws Exception {
         ProductInfo productInfo = new ProductInfo();

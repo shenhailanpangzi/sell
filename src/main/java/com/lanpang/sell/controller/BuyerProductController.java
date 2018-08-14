@@ -19,7 +19,7 @@ import java.util.List;
 import java.util.stream.Collectors;
 
 /**
- * 买家商品
+ * 买家端 商品  Controller层数据展现
  * Created by 廖师兄
  * 2017-05-12 14:08
  */
@@ -33,7 +33,10 @@ public class BuyerProductController {
     @Autowired
     private CategoryService categoryService;
 
-
+    /**
+     * 查询所有商品
+     * @return
+     */
     @GetMapping("/list")
     public ResultVO list() {
         //1. 查询所有的上架商品

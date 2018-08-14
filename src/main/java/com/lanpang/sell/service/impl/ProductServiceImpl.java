@@ -17,7 +17,7 @@ import org.springframework.transaction.annotation.Transactional;
 import java.util.List;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-05-09 17:31
  */
 @Service
@@ -48,7 +48,18 @@ public class ProductServiceImpl implements ProductService {
 
     //加库存
     @Override
+    @Transactional
     public void increaseStock(List<CartDTO> cartDTOList) {
+        for (CartDTO cartDTO: cartDTOList) {
+            ProductInfo productInfo = repository.findOne(cartDTO.getProductId());
+            if (productInfo == null) {
+                throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+            }
+            Integer result = productInfo.getProductStock() + cartDTO.getProductQuantity();
+            productInfo.setProductStock(result);
+
+            repository.save(productInfo);
+        }
 
     }
 
@@ -61,14 +72,11 @@ public class ProductServiceImpl implements ProductService {
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
             }
-
             Integer result = productInfo.getProductStock() - cartDTO.getProductQuantity();
             if (result < 0) {
                 throw new SellException(ResultEnum.PRODUCT_STOCK_ERROR);
             }
-
             productInfo.setProductStock(result);
-
             repository.save(productInfo);
         }
     }
