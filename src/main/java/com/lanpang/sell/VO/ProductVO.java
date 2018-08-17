@@ -7,7 +7,7 @@ import java.util.List;
 
 /**
  * 商品(包含类目)
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-05-12 14:20
  */
 @Data

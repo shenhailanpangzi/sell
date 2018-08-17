@@ -7,7 +7,7 @@ import javax.persistence.Id;
 import java.math.BigDecimal;
 
 /**订单详情表
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-06-11 17:20
  */
 @Entity

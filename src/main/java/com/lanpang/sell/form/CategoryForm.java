@@ -3,7 +3,7 @@ package com.lanpang.sell.form;
 import lombok.Data;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-07-23 21:43
  */
 @Data

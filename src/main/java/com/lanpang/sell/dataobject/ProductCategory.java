@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * 类目
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-05-07 14:30
  */
 @Entity

@@ -7,7 +7,7 @@ import java.math.BigDecimal;
 
 /**
  * 商品详情 为了隐私安全最好自己建VO对象不要使用实体
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-05-12 14:25
  */
 @Data

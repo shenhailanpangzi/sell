@@ -3,7 +3,7 @@ package com.lanpang.sell.enums;
 import lombok.Getter;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-06-11 17:16
  */
 @Getter

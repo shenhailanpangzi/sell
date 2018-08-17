@@ -7,7 +7,7 @@ import org.springframework.data.jpa.repository.JpaRepository;
 import java.util.List;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-05-09 11:39
  */
 public interface ProductInfoRepository extends JpaRepository<ProductInfo, String> {

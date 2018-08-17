@@ -4,7 +4,7 @@ import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-06-18 23:31
  */
 @Data

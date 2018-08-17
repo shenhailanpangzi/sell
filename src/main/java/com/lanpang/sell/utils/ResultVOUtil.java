@@ -4,7 +4,7 @@ package com.lanpang.sell.utils;
 import com.lanpang.sell.VO.ResultVO;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-05-15 00:22
  */
 public class ResultVOUtil {

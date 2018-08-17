@@ -4,7 +4,7 @@ package com.lanpang.sell.exception;
 import com.lanpang.sell.enums.ResultEnum;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-06-11 18:55
  */
 public class SellException extends RuntimeException{

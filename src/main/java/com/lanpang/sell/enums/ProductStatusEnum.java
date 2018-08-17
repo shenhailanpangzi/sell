@@ -4,7 +4,7 @@ import lombok.Getter;
 
 /**
  * 商品状态
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-05-09 17:33
  */
 @Getter

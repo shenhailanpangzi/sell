@@ -20,7 +20,7 @@ import java.util.stream.Collectors;
 
 /**
  * 买家端 商品  Controller层数据展现
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-05-12 14:08
  */
 @RestController

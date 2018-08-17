@@ -42,7 +42,7 @@ public class OrderServiceImplTest {
     @Test
     public void create() throws Exception {
         OrderDTO orderDTO = new OrderDTO();
-        orderDTO.setBuyerName("廖师兄");
+        orderDTO.setBuyerName("杨浩");
         orderDTO.setBuyerAddress("幕课网");
         orderDTO.setBuyerPhone("123456789012");
         orderDTO.setBuyerOpenid(BUYER_OPENID);
