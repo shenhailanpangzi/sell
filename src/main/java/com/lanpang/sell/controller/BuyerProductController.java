@@ -23,6 +23,7 @@ import java.util.stream.Collectors;
  * Created by 杨浩
  * 2017-05-12 14:08
  */
+//返回json不会跳转
 @RestController
 @RequestMapping("/buyer/product")
 public class BuyerProductController {

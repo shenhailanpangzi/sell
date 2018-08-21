@@ -15,3 +15,6 @@ logging:
   level: debug
 #  pattern:
 #    console:
+wechat:
+  mpAppId: wx135faac6ebc8c2eb
+  mpAppSecret: b4163d745a68245ab34924b65722ff09

@@ -6,6 +6,7 @@ import com.lanpang.sell.dto.OrderDTO;
 import com.lanpang.sell.enums.ResultEnum;
 import com.lanpang.sell.exception.SellException;
 import com.lanpang.sell.form.OrderForm;
+import com.lanpang.sell.service.BuyerService;
 import com.lanpang.sell.service.OrderService;
 import com.lanpang.sell.utils.ResultVOUtil;
 import lombok.extern.slf4j.Slf4j;
@@ -17,6 +18,7 @@ import org.springframework.util.StringUtils;
 import org.springframework.validation.BindingResult;
 import org.springframework.web.bind.annotation.*;
 
+import javax.annotation.Resource;
 import javax.validation.Valid;
 import java.util.HashMap;
 import java.util.List;
@@ -34,7 +36,8 @@ public class BuyerOrderController {
 
     @Autowired
     private OrderService orderService;
-
+    @Resource
+    private BuyerService buyerService;
 
     //创建订单
     @PostMapping("/create")
@@ -85,8 +88,7 @@ public class BuyerOrderController {
             log.error("【查询订单列表】openid为空");
             throw new SellException(ResultEnum.PARAM_ERROR);
         }
-        //TODO 不安全用户可以越权访问
-        OrderDTO orderDTO = orderService.findOne(orderId);
+        OrderDTO orderDTO = buyerService.findOrderOne(openid,orderId);
         return ResultVOUtil.success(orderDTO);
     }
 
@@ -94,9 +96,7 @@ public class BuyerOrderController {
     @PostMapping("/cancel")
     public ResultVO cancel(@RequestParam("openid") String openid,
                            @RequestParam("orderId") String orderId) {
-        //TODO 不安全用户可以越权访问
-        OrderDTO orderDTO = orderService.findOne(orderId);
-        orderService.cancel(orderDTO);
-        return ResultVOUtil.success(orderDTO);
+        buyerService.cancelOrder(openid, orderId);
+        return ResultVOUtil.success();
     }
 }
