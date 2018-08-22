@@ -36,7 +36,7 @@ public class WechatController {
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         //1. 配置
         //2. 调用方法
-        String url = "http://an66uw.natappfree.cc/" + "sell/wechat/userInfo";
+        String url = "http://9dd2q7.natappfree.cc/" + "sell/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_BASE, URLEncoder.encode(returnUrl));
 
         log.info("【微信网页授权】获取code,result={}",redirectUrl);
@@ -61,7 +61,9 @@ public class WechatController {
         }
 
         String openId = wxMpOAuth2AccessToken.getOpenId();
-        System.out.println("【微信网页授权openId】"+openId+"{returnUrl}:"+returnUrl);
+        System.out.println("默认returnUrl："+returnUrl);
+        returnUrl = "http://192.168.43.140/#/";//虚拟机 地址
+        System.out.println("【微信网页授权openId】"+"redirect:" + returnUrl + "?openid=" + openId);
         return "redirect:" + returnUrl + "?openid=" + openId;
     }
 
