@@ -16,7 +16,7 @@ import org.springframework.web.bind.annotation.RequestParam;
 import java.net.URLEncoder;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-07-03 01:20
  */
 @Controller
@@ -36,7 +36,7 @@ public class WechatController {
     public String authorize(@RequestParam("returnUrl") String returnUrl) {
         //1. 配置
         //2. 调用方法
-        String url = "http://9dd2q7.natappfree.cc/" + "sell/wechat/userInfo";
+        String url = "http://34tv86.natappfree.cc/" + "sell/wechat/userInfo";
         String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_BASE, URLEncoder.encode(returnUrl));
 
         log.info("【微信网页授权】获取code,result={}",redirectUrl);

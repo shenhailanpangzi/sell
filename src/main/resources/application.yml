@@ -19,3 +19,9 @@ logging:
 wechat:
   mpAppId: wx135faac6ebc8c2eb
   mpAppSecret: b4163d745a68245ab34924b65722ff09
+  openAppId: wx6ad144e54af67d87
+  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+  mchId: 1483469312
+  mchKey: 06C56A89949D617xxxxxxxxxxx
+  keyPath: /var/weixin_cert/h5.p12      #证书配置的路径
+  notifyUrl: http://sell.natapp4.cc/sell/pay/notify #异步通知地址 要和项目地址一致

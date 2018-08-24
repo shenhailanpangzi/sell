@@ -7,7 +7,7 @@ import org.springframework.stereotype.Component;
 import java.util.Map;
 
 /*微信账号相关配置
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-07-03 01:31
  */
 @Data
@@ -46,7 +46,7 @@ public class WechatAccountConfig {
     private String mchKey;
 
     /**
-     * 商户证书路径
+     * 商户证书 路径
      */
     private String keyPath;
 

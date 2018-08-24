@@ -8,8 +8,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.stereotype.Component;
 
-/**
- * Created by 廖师兄
+/**微信公众号配置
+ * Created by 杨浩
  * 2017-07-03 01:25
  */
 @Component
