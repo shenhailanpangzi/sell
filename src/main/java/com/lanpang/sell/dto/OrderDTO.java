@@ -1,10 +1,15 @@
 package com.lanpang.sell.dto;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.lanpang.sell.dataobject.OrderDetail;
+import com.lanpang.sell.enums.OrderStatusEnum;
+import com.lanpang.sell.enums.PayStatusEnum;
+import com.lanpang.sell.utils.EnumUtil;
 import com.lanpang.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
+import lombok.ToString;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -12,9 +17,10 @@ import java.util.List;
 
 /**订单对象
  * Created by 杨浩
- * 2017-06-11 18:30
+ * 2018-06-11 18:30
  */
 @Data
+@ToString
 //@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)//旧用法
 //@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {
@@ -54,13 +60,14 @@ public class OrderDTO {
     //订单详情列表
     List<OrderDetail> orderDetailList;
 
-//    @JsonIgnore
-//    public OrderStatusEnum getOrderStatusEnum() {
-//        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
-//    }
-//
-//    @JsonIgnore
-//    public PayStatusEnum getPayStatusEnum() {
-//        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
-//    }
+    @JsonIgnore
+    public OrderStatusEnum getOrderStatusEnum() {
+        return EnumUtil.getByCode(orderStatus, OrderStatusEnum.class);
+    }
+
+    @JsonIgnore
+    public PayStatusEnum getPayStatusEnum() {
+        return EnumUtil.getByCode(payStatus, PayStatusEnum.class);
+    }
+
 }

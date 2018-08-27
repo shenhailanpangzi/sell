@@ -4,6 +4,7 @@ import com.lanpang.sell.dataobject.OrderDetail;
 import com.lanpang.sell.dto.OrderDTO;
 import com.lanpang.sell.enums.OrderStatusEnum;
 import com.lanpang.sell.enums.PayStatusEnum;
+import com.lanpang.sell.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -107,7 +108,13 @@ public class OrderServiceImplTest {
     }
 
     @Test
-    public void findList1() throws Exception {
+    public void list() {
+        PageRequest request = new PageRequest(0,2);
+        Page<OrderDTO> orderDTOPage = orderService.findList(request);
+//        Assert.assertNotEquals(0, orderDTOPage.getTotalElements());
+        //message:提示的信息   condition：判断的条件
+        Assert.assertTrue("查询所有的订单列表", orderDTOPage.getTotalElements() > 0);
+        System.out.println(orderDTOPage.toString());
     }
 
 }

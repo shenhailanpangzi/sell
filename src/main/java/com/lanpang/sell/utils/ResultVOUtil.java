@@ -5,7 +5,7 @@ import com.lanpang.sell.VO.ResultVO;
 
 /**
  * Created by 杨浩
- * 2017-05-15 00:22
+ * 2018-05-15 00:22
  */
 public class ResultVOUtil {
 

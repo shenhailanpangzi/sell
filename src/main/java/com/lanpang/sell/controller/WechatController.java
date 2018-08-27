@@ -17,7 +17,7 @@ import java.net.URLEncoder;
 
 /**
  * Created by 杨浩
- * 2017-07-03 01:20
+ * 2018-07-03 01:20
  */
 @Controller
 @RequestMapping("/wechat")

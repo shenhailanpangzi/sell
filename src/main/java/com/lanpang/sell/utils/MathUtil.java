@@ -2,7 +2,7 @@ package com.lanpang.sell.utils;
 
 /**金额比较是否相等，精确到0.01  相等返回true
  * Created by
- * 2017-07-09 16:56
+ * 2018-07-09 16:56
  */
 public class MathUtil {
 

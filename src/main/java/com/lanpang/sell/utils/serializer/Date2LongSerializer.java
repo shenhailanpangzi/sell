@@ -10,7 +10,7 @@ import java.util.Date;
 
 /**
  * Created by 杨浩
- * 2017-06-19 00:29
+ * 2018-06-19 00:29
  */
 public class Date2LongSerializer extends JsonSerializer<Date> {//入参为Date类型
 

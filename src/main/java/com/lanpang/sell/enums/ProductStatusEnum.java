@@ -5,10 +5,10 @@ import lombok.Getter;
 /**
  * 商品状态
  * Created by 杨浩
- * 2017-05-09 17:33
+ * 2018-05-09 17:33
  */
 @Getter
-public enum ProductStatusEnum {
+public enum ProductStatusEnum implements CodeEnum{
     UP(0, "在架"),
     DOWN(1, "下架")
     ;

@@ -12,7 +12,7 @@ import java.util.Date;
 
 /**订单主表
  * Created by 杨浩
- * 2017-06-11 17:08
+ * 2018-06-11 17:08
  */
 @Entity
 @Data

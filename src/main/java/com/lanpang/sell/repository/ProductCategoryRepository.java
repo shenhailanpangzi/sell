@@ -8,7 +8,7 @@ import java.util.List;
 
 /**
  * Created by 杨浩
- * 2017-05-07 14:35
+ * 2018-05-07 14:35
  */
 public interface ProductCategoryRepository extends JpaRepository<ProductCategory, Integer> {
     //使用这种查询方式的实体必须由一个无参构造方法

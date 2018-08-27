@@ -3,9 +3,9 @@ package com.lanpang.sell.form;
 import lombok.Data;
 import org.hibernate.validator.constraints.NotEmpty;
 
-/**
+/** 买家端 订单入参
  * Created by 杨浩
- * 2017-06-18 23:31
+ * 2018-06-18 23:31
  */
 @Data
 public class OrderForm {

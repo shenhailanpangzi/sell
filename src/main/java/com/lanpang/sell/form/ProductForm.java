@@ -6,7 +6,7 @@ import java.math.BigDecimal;
 
 /**
  * Created by 杨浩
- * 2017-07-23 17:20
+ * 2018-07-23 17:20
  */
 @Data
 public class ProductForm {

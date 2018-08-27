@@ -11,7 +11,7 @@ import java.util.Date;
 /**
  * 类目
  * Created by 杨浩
- * 2017-05-07 14:30
+ * 2018-05-07 14:30
  */
 @Entity
 //动态更新时间
@@ -31,9 +31,9 @@ public class ProductCategory {
     /** 类目编号. */
     private Integer categoryType;
 
-//    private Date createTime;
-//
-//    private Date updateTime;
+    private Date createTime;
+
+    private Date updateTime;
 
     public ProductCategory() {
     }

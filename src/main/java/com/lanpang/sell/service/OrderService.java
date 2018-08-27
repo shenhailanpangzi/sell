@@ -6,7 +6,7 @@ import org.springframework.data.domain.Pageable;
 
 /**
  * Created by 杨浩
- * 2017-06-11 18:23
+ * 2018-06-11 18:23
  */
 public interface OrderService {
 
@@ -16,7 +16,7 @@ public interface OrderService {
     /** 查询单个订单. */
     OrderDTO findOne(String orderId);
 
-    /** 查询订单列表. */
+    /** 查询某人订单列表. */
     Page<OrderDTO> findList(String buyerOpenid, Pageable pageable);
 
     /** 取消订单. */
@@ -28,7 +28,7 @@ public interface OrderService {
     /** 支付订单. */
     OrderDTO paid(OrderDTO orderDTO);
 
-    /** 查询订单列表. */
+    /** 查询所有用户订单列表. */
     Page<OrderDTO> findList(Pageable pageable);
 
 }

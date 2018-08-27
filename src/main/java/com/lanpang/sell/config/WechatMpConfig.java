@@ -10,7 +10,7 @@ import org.springframework.stereotype.Component;
 
 /**微信公众号配置
  * Created by 杨浩
- * 2017-07-03 01:25
+ * 2018-07-03 01:25
  */
 @Component
 public class WechatMpConfig {

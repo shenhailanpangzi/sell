@@ -1,7 +1,10 @@
 package com.lanpang.sell.dataobject;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
+import com.lanpang.sell.enums.ProductStatusEnum;
+import com.lanpang.sell.utils.EnumUtil;
 import lombok.Data;
+import org.apache.commons.lang3.EnumUtils;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
@@ -12,7 +15,7 @@ import java.util.Date;
 /**
  * 商品
  * Created by 杨浩
- * 2017-05-09 11:30
+ * 2018-05-09 11:30
  */
 @Entity
 @Data
@@ -43,10 +46,16 @@ public class ProductInfo {
     /** 类目编号. */
     private Integer categoryType;
 
-//    private Date createTime;
-//
-//    private Date updateTime;
+    private Date createTime;
 
-    public ProductInfo() {
+    private Date updateTime;
+
+    /**
+     * 作用：在json序列化时将java bean中的一些属性忽略掉，序列化和反序列化都受影响。
+     * 使用方法：一般标记在属性或者方法上，返回的json数据即不包含该属性。
+     */
+    @JsonIgnore
+    public ProductStatusEnum getProductStatusEnum(){
+        return EnumUtil.getByCode(productStatus,ProductStatusEnum.class);
     }
 }

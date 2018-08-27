@@ -37,7 +37,7 @@ import java.util.stream.Collectors;
 
 /**订单
  * Created by 杨浩
- * 2017-06-11 18:43
+ * 2018-06-11 18:43
  */
 @Service
 @Slf4j
@@ -228,6 +228,10 @@ public class OrderServiceImpl implements OrderService {
     /** 查询订单列表. */
     @Override
     public Page<OrderDTO> findList(Pageable pageable) {
-        return null;
+        Page<OrderMaster> orderMasterPage = orderMasterRepository.findAll(pageable);
+
+        List<OrderDTO> orderDTOList = OrderMaster2OrderDTOConverter.convert(orderMasterPage.getContent());
+
+        return new PageImpl<>(orderDTOList, pageable, orderMasterPage.getTotalElements());
     }
 }

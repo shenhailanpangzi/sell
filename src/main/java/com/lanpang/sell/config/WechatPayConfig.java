@@ -8,7 +8,7 @@ import org.springframework.stereotype.Component;
 
 /**微信支付配置
  * Created by 杨浩
- * 2017-07-04 01:05
+ * 2018-07-04 01:05
  */
 @Component
 public class WechatPayConfig {

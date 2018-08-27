@@ -9,7 +9,7 @@ import org.springframework.web.client.RestTemplate;
 
 /**
  * Created by 杨浩
- * 2017-07-03 00:50
+ * 2018-07-03 00:50
  */
 @RestController
 @RequestMapping("/weixin")

@@ -8,7 +8,7 @@ import java.util.Map;
 
 /*微信账号相关配置
  * Created by 杨浩
- * 2017-07-03 01:31
+ * 2018-07-03 01:31
  */
 @Data
 @Component
