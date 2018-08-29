@@ -4,7 +4,7 @@ package com.lanpang.sell.utils;
 import com.lanpang.sell.enums.CodeEnum;
 
 /**
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-07-16 18:36
  */
 public class EnumUtil {

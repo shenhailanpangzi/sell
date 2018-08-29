@@ -4,7 +4,7 @@ import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.lanpang.sell.enums.ProductStatusEnum;
 import com.lanpang.sell.utils.EnumUtil;
 import lombok.Data;
-import org.apache.commons.lang3.EnumUtils;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
@@ -19,7 +19,8 @@ import java.util.Date;
  */
 @Entity
 @Data
-@DynamicUpdate
+@DynamicUpdate  //更新时动态插入时间
+@DynamicInsert  //新增时动态插入时间
 public class ProductInfo {
 
     @Id
@@ -41,7 +42,7 @@ public class ProductInfo {
     private String productIcon;
 
     /** 状态, 0正常1下架. */
-    private Integer productStatus;
+    private Integer productStatus = ProductStatusEnum.UP.getCode();
 
     /** 类目编号. */
     private Integer categoryType;
@@ -55,7 +56,7 @@ public class ProductInfo {
      * 使用方法：一般标记在属性或者方法上，返回的json数据即不包含该属性。
      */
     @JsonIgnore
-    public ProductStatusEnum getProductStatusEnum(){
-        return EnumUtil.getByCode(productStatus,ProductStatusEnum.class);
+    public ProductStatusEnum getProductStatusEnum() {
+        return EnumUtil.getByCode(productStatus, ProductStatusEnum.class);
     }
 }

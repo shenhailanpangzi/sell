@@ -18,7 +18,7 @@ import java.util.Map;
 
 /**
  * 卖家端订单
- * Created by 廖师兄
+ * Created by 杨浩
  * 2017-07-16 17:24
  */
 @Controller
@@ -37,7 +37,7 @@ public class SellerOrderController {
      */
     @GetMapping("/list")
     public ModelAndView list(@RequestParam(value = "page", defaultValue = "1") Integer page,
-                             @RequestParam(value = "size", defaultValue = "10") Integer size,
+                             @RequestParam(value = "size", defaultValue = "5") Integer size,
                              Map<String, Object> map) {
 //        page：是从第0页开始查的  所以这里要对入参-1
         PageRequest request = new PageRequest(page - 1, size);

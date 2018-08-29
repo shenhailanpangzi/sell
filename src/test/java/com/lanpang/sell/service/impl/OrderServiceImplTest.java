@@ -4,7 +4,6 @@ import com.lanpang.sell.dataobject.OrderDetail;
 import com.lanpang.sell.dto.OrderDTO;
 import com.lanpang.sell.enums.OrderStatusEnum;
 import com.lanpang.sell.enums.PayStatusEnum;
-import com.lanpang.sell.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -17,8 +16,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 
 import java.util.ArrayList;
 import java.util.List;
-
-import static org.junit.Assert.*;
 
 /**
  * @Description：订单service
@@ -44,7 +41,7 @@ public class OrderServiceImplTest {
     public void create() throws Exception {
         OrderDTO orderDTO = new OrderDTO();
         orderDTO.setBuyerName("杨浩");
-        orderDTO.setBuyerAddress("幕课网");
+        orderDTO.setBuyerAddress("通港大厦");
         orderDTO.setBuyerPhone("123456789012");
         orderDTO.setBuyerOpenid(BUYER_OPENID);
 

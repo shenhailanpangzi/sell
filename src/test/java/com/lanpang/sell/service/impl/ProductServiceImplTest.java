@@ -14,8 +14,6 @@ import org.springframework.test.context.junit4.SpringRunner;
 import java.math.BigDecimal;
 import java.util.List;
 
-import static org.junit.Assert.*;
-
 /**
  * @Description：商品service
  * @Author:yanghao
@@ -68,5 +66,23 @@ public class ProductServiceImplTest {
         productInfo.setCategoryType(2);
         ProductInfo result = productService.save(productInfo);
         Assert.assertNotNull(result);
+    }
+    /**
+     * 下架商品
+     * @throws Exception
+     */
+    @Test
+    public void onSale() throws Exception {
+        ProductInfo result = productService.onSale(String.valueOf(123456));
+        Assert.assertEquals(ProductStatusEnum.UP,result.getProductStatusEnum());
+    }
+    /**
+     * 下架商品
+     * @throws Exception
+     */
+    @Test
+    public void offSale() throws Exception {
+        ProductInfo result = productService.offSale(String.valueOf(123456));
+        Assert.assertEquals(ProductStatusEnum.DOWN,result.getProductStatusEnum());
     }
 }

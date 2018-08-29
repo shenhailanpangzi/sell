@@ -16,8 +16,8 @@ import com.lanpang.sell.repository.OrderMasterRepository;
 import com.lanpang.sell.service.OrderService;
 import com.lanpang.sell.service.PayService;
 import com.lanpang.sell.service.ProductService;
+import com.lanpang.sell.service.WebSocket;
 import com.lanpang.sell.utils.KeyUtil;
-import com.sun.xml.internal.bind.v2.TODO;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -26,10 +26,8 @@ import org.springframework.data.domain.PageImpl;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.util.Assert;
 import org.springframework.util.CollectionUtils;
 
-import javax.annotation.Resource;
 import java.math.BigDecimal;
 import java.math.BigInteger;
 import java.util.List;
@@ -52,13 +50,18 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private OrderMasterRepository orderMasterRepository;
 
-    @Resource
+    @Autowired
     private PayService payService;
 
+//    @Autowired
+//    private PushMessageService pushMessageService;
+
+    @Autowired
+    private WebSocket webSocket;
 
     /** 创建订单. */
     @Override
-        @Transactional
+    @Transactional
     public OrderDTO create(OrderDTO orderDTO) {
         String orderId = KeyUtil.genUniqueKey();
         //默认总价为0
@@ -105,8 +108,8 @@ public class OrderServiceImpl implements OrderService {
         ).collect(Collectors.toList());
         productService.decreaseStock(cartDTOList);
 
-        //发送websocket消息
-//        webSocket.sendMessage(orderDTO.getOrderId());
+//        发送websocket消息
+        webSocket.sendMessage("有新的订单："+orderDTO.getOrderId());
 
         return orderDTO;
 

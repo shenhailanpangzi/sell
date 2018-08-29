@@ -14,7 +14,7 @@
                 <div class="col-md-12 column">
                     <form role="form" method="post" action="/sell/seller/product/save">
                         <div class="form-group">
-                            <label>名称</label>
+                            <label>名称</label>                                        <#--处理对象空值时使用()!+''-->
                             <input name="productName" type="text" class="form-control" value="${(productInfo.productName)!''}"/>
                         </div>
                         <div class="form-group">
@@ -39,6 +39,7 @@
                             <select name="categoryType" class="form-control">
                                 <#list categoryList as category>
                                     <option value="${category.categoryType}"
+                                                ??表示存在，并且
                                             <#if (productInfo.categoryType)?? && productInfo.categoryType == category.categoryType>
                                                 selected
                                             </#if>

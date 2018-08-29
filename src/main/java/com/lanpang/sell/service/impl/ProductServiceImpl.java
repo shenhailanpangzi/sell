@@ -80,6 +80,7 @@ public class ProductServiceImpl implements ProductService {
             repository.save(productInfo);
         }
     }
+    //上架
     @Override
     public ProductInfo onSale(String productId) {
         ProductInfo productInfo = repository.findOne(productId);
@@ -94,7 +95,7 @@ public class ProductServiceImpl implements ProductService {
         productInfo.setProductStatus(ProductStatusEnum.UP.getCode());
         return repository.save(productInfo);
     }
-
+    //下架
     @Override
     public ProductInfo offSale(String productId) {
         ProductInfo productInfo = repository.findOne(productId);

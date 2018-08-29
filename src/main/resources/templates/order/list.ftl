@@ -48,13 +48,67 @@
                         </tbody>
                     </table>
                 </div>
+
+            <#--分页-->
+                <div class="col-md-12 column">
+                    <ul class="pagination pull-right">
+                    <#if currentPage lte 1>
+                        <li class="disabled"><a href="#">上一页</a></li>
+                    <#else>
+                        <li><a href="/sell/seller/order/list?page=${currentPage - 1}&size=${size}">上一页</a></li>
+                    </#if>
+
+                    <#list 1..orderDTOPage.getTotalPages() as index>
+                        <#if currentPage == index>
+                            <li class="disabled"><a href="#">${index}</a></li>
+                        <#else>
+                            <li><a href="/sell/seller/order/list?page=${index}&size=${size}">${index}</a></li>
+                        </#if>
+                    </#list>
+
+                    <#if currentPage gte orderDTOPage.getTotalPages()>
+                        <li class="disabled"><a href="#">下一页</a></li>
+                    <#else>
+                        <li><a href="/sell/seller/order/list?page=${currentPage + 1}&size=${size}">下一页</a></li>
+                    </#if>
+                    </ul>
+                </div>
             </div>
         </div>
     </div>
 
 </div>
-
-
+<#--websocket客户端开发 基于html5-->
+<script>
+    var websocket = null;
+    if ('WebSocket' in window){
+        // 判断浏览器是否支持websocket
+        websocket = new WebSocket('ws://localhost:8080/sell/webSocket');
+    }else {
+        alert('该浏览器不支持websocket！')
+    }
+    // websocket打开时的事件
+    websocket.onopen = function (event) {
+        console.log('建立连接。。。');
+    }
+    // websocket关闭时的事件
+    websocket.onclose = function (event) {
+        console.log('连接关闭。。。');
+    }
+    // 消息来了的时候的事件
+    websocket.onmessage = function (event) {
+        console.log('收到消息：'+event.data)
+        // 弹窗提示，播放音乐等
+    }
+    //通信发生错误
+    websocket.onerror = function (event) {
+        alert('websocket通信发生错误！')
+    }
+    //窗口关闭的时候关闭websocket
+    window.onbeforeunload = function (ev) {
+        websocket.close();
+    }
+</script>
 
 </body>
 </html>
