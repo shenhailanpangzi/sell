@@ -13,10 +13,7 @@ import com.lanpang.sell.enums.ResultEnum;
 import com.lanpang.sell.exception.SellException;
 import com.lanpang.sell.repository.OrderDetailRepository;
 import com.lanpang.sell.repository.OrderMasterRepository;
-import com.lanpang.sell.service.OrderService;
-import com.lanpang.sell.service.PayService;
-import com.lanpang.sell.service.ProductService;
-import com.lanpang.sell.service.WebSocket;
+import com.lanpang.sell.service.*;
 import com.lanpang.sell.utils.KeyUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.BeanUtils;
@@ -53,6 +50,8 @@ public class OrderServiceImpl implements OrderService {
     @Autowired
     private PayService payService;
 
+    @Autowired
+    private PushMessageService pushMessageService;
 //    @Autowired
 //    private PushMessageService pushMessageService;
 
@@ -74,6 +73,7 @@ public class OrderServiceImpl implements OrderService {
             ProductInfo productInfo =  productService.findOne(orderDetail.getProductId());
             if (productInfo == null) {
                 throw new SellException(ResultEnum.PRODUCT_NOT_EXIST);
+//                throw new ResponseBankException(ResultEnum.PRODUCT_NOT_EXIST);
             }
 
             //2. 计算订单总价
@@ -143,6 +143,7 @@ public class OrderServiceImpl implements OrderService {
 
     /** 取消订单. */
     @Override
+    @Transactional
     public OrderDTO cancel(OrderDTO orderDTO) {
         OrderMaster orderMaster = new OrderMaster();
 
@@ -179,6 +180,7 @@ public class OrderServiceImpl implements OrderService {
     }
     /** 完结订单. */
     @Override
+    @Transactional
     public OrderDTO finish(OrderDTO orderDTO) {
         //1、判断订单状态
         if (!orderDTO.getOrderStatus().equals(OrderStatusEnum.NEW.getCode())) {
@@ -197,8 +199,7 @@ public class OrderServiceImpl implements OrderService {
         }
 
         //推送微信模版消息
-//        TODO
-
+        pushMessageService.orderStatus(orderDTO);
         return orderDTO;
     }
     /** 支付订单. */

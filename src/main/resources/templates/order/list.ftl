@@ -78,7 +78,42 @@
     </div>
 
 </div>
-<#--websocket客户端开发 基于html5-->
+<#--弹窗 start....-->
+<div class="modal fade" id="myModal" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">×</button>
+                <h4 class="modal-title" id="myModalLabel">
+                    提醒
+                </h4>
+            </div>
+            <div class="modal-body">
+                你有新的订单
+            </div>
+            <div class="modal-footer">
+                <button onclick="javascript:document.getElementById('notice').pause()" type="button" class="btn btn-default" data-dismiss="modal">关闭</button>
+                <button onclick="location.reload()" type="button" class="btn btn-primary">查看新订单</button>
+            </div>
+        </div>
+    </div>
+</div>
+<#--弹窗 end....-->
+<#--播放音乐 循环播放loop="loop" start....-->
+<audio id="notice" loop="loop">
+    <source src="/sell/mp3/song.mp3" type="audio/mpeg" />
+</audio>
+<#--播放音乐 end....-->
+
+<#--引入js包 start-->
+<script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+<script src="https://cdn.bootcss.com/bootstrap/3.3.5/js/bootstrap.min.js"></script>
+<#--引入js包 end-->
+
+<#--websocket 是客户端和服务端的通信 所以分为客户端和服务端
+客户端开发 基于html5
+
+-->
 <script>
     var websocket = null;
     if ('WebSocket' in window){
@@ -99,13 +134,16 @@
     websocket.onmessage = function (event) {
         console.log('收到消息：'+event.data)
         // 弹窗提示，播放音乐等
+        $('#myModal').modal('show');
+        //获取元素执行play方法
+        document.getElementById('notice').play();
     }
     //通信发生错误
     websocket.onerror = function (event) {
         alert('websocket通信发生错误！')
     }
     //窗口关闭的时候关闭websocket
-    window.onbeforeunload = function (ev) {
+    window.onbeforeunload = function (event) {
         websocket.close();
     }
 </script>

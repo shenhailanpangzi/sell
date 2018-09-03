@@ -1,4 +1,4 @@
-spring:
+ spring:
   datasource:
     driver-class-name: com.mysql.jdbc.Driver
     username: yh
@@ -6,22 +6,37 @@ spring:
     url: jdbc:mysql://localhost/yh?characterEncoding=utf-8&useSSL=false #连接mysql忽略ssl安全协议
   jpa:
     show-sql: true
+  redis:
+    host: localhost
+    port: 6379
+    password:
 #  jackson:
 #    default-property-inclusion: non_null  #为所有返回参数添加@JsonInclude(JsonInclude.Include.NON_NULL)
-server:
-  context-path: /sell
-  port: 8080
+ server:
+   context-path: /sell
+   port: 8080
 #日志配置
-logging:
-  level: debug
+ logging:
+   level: debug
+#    com.lanpang.sell.dataobject.mapper: trance
 #  pattern:
 #    console:
-wechat:
-  mpAppId: wx135faac6ebc8c2eb
-  mpAppSecret: b4163d745a68245ab34924b65722ff09
-  openAppId: wx6ad144e54af67d87
-  openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
-  mchId: 1483469312
-  mchKey: 06C56A89949D617xxxxxxxxxxx
-  keyPath: /var/weixin_cert/h5.p12      #证书配置的路径
-  notifyUrl: http://sell.natapp4.cc/sell/pay/notify #异步通知地址 要和项目地址一致
+ wechat:
+   mpAppId: wx135faac6ebc8c2eb
+   mpAppSecret: b4163d745a68245ab34924b65722ff09
+   openAppId: wx6ad144e54af67d87
+   openAppSecret: 91a2ff6d38a2bbccfb7e9f9079108e2e
+   mchId: 1483469312
+   mchKey: 06C56A89949D617xxxxxxxxxxx
+   keyPath: /var/weixin_cert/h5.p12      #证书配置的路径
+   notifyUrl: http://6ttfdn.natappfree.cc/sell/pay/notify #异步通知地址 要和项目地址一致
+   templateId:
+      orderStatus: e-Cqq67QxD6YNI41iRiqawEYdFavW_7pc7LyEMb-yeQ
+
+ projectUrl:
+   wechatMpAuthorize: 6ttfdn.natappfree.cc
+   wechatOpenAuthorize: 6ttfdn.natappfree.cc
+   sell: 6ttfdn.natappfree.cc
+   loginsource: password #配置是否是密码登录 默认微信登录
+ mybatis:
+   mapper-locations: classpath:/mapper/*.xml

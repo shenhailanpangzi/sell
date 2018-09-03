@@ -1,7 +1,6 @@
 package com.lanpang.sell.dto;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
-import com.fasterxml.jackson.annotation.JsonInclude;
 import com.fasterxml.jackson.databind.annotation.JsonSerialize;
 import com.lanpang.sell.dataobject.OrderDetail;
 import com.lanpang.sell.enums.OrderStatusEnum;
@@ -10,6 +9,8 @@ import com.lanpang.sell.utils.EnumUtil;
 import com.lanpang.sell.utils.serializer.Date2LongSerializer;
 import lombok.Data;
 import lombok.ToString;
+import org.hibernate.annotations.DynamicInsert;
+import org.hibernate.annotations.DynamicUpdate;
 
 import java.math.BigDecimal;
 import java.util.Date;
@@ -21,6 +22,8 @@ import java.util.List;
  */
 @Data
 @ToString
+@DynamicUpdate  //更新时动态插入时间
+@DynamicInsert  //新增时动态插入时间
 //@JsonSerialize(include = JsonSerialize.Inclusion.NON_NULL)//旧用法
 //@JsonInclude(JsonInclude.Include.NON_NULL)
 public class OrderDTO {

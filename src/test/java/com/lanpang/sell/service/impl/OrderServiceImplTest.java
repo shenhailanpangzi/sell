@@ -4,6 +4,7 @@ import com.lanpang.sell.dataobject.OrderDetail;
 import com.lanpang.sell.dto.OrderDTO;
 import com.lanpang.sell.enums.OrderStatusEnum;
 import com.lanpang.sell.enums.PayStatusEnum;
+import com.lanpang.sell.utils.JsonUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.junit.Assert;
 import org.junit.Test;
@@ -59,7 +60,7 @@ public class OrderServiceImplTest {
         orderDetailList.add(o2);
 
         orderDTO.setOrderDetailList(orderDetailList);
-
+        System.out.println(JsonUtil.toJson(orderDTO));
         OrderDTO result = orderService.create(orderDTO);
         log.info("【创建订单】result={}", result);
         Assert.assertNotNull(result);

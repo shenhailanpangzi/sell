@@ -34,7 +34,7 @@ public class PayController {
                                Map<String, Object> map) {
         //1. 查询订单
         OrderDTO orderDTO = orderService.findOne(orderId);
-        if (orderDTO == null) {
+        if (orderDTO ==  null) {
             throw new SellException(ResultEnum.ORDER_NOT_EXIST);
         }
 

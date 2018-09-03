@@ -3,6 +3,7 @@ package com.lanpang.sell.dataobject;
 import com.lanpang.sell.enums.OrderStatusEnum;
 import com.lanpang.sell.enums.PayStatusEnum;
 import lombok.Data;
+import org.hibernate.annotations.DynamicInsert;
 import org.hibernate.annotations.DynamicUpdate;
 
 import javax.persistence.Entity;
@@ -16,7 +17,9 @@ import java.util.Date;
  */
 @Entity
 @Data
-@DynamicUpdate(false)
+//@DynamicUpdate(false)
+@DynamicUpdate  //更新时动态插入时间
+@DynamicInsert  //新增时动态插入时间
 public class OrderMaster {
 
     /** 订单id. */

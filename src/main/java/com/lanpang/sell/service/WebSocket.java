@@ -12,12 +12,16 @@ import java.io.IOException;
 import java.util.concurrent.CopyOnWriteArraySet;
 
 @Component
+//websocket的url配置
 @ServerEndpoint("/webSocket")
 @Slf4j
 public class WebSocket {
 
     private Session session;
 
+    /**
+     * 存储websocket容器
+     */
     private static CopyOnWriteArraySet<WebSocket> webSockets = new CopyOnWriteArraySet<>();
 
     @OnOpen
@@ -34,14 +38,17 @@ public class WebSocket {
     @OnMessage
     public void onMessage(String message){
         log.info("【websocket消息】 收到客户端发送的消息：{}"+message);
+
     }
     public void sendMessage(String message){
         for (WebSocket webSocket : webSockets){
+
             log.info("【websocket消息】 广播消息：{}"+message);
             try {
                 //发送消息
                 webSocket.session.getBasicRemote().sendText(message);
             } catch (IOException e) {
+                System.err.println("【websocket消息】 广播消息失败!");
                 e.printStackTrace();
             }
         }
