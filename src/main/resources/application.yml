@@ -14,7 +14,7 @@
 #    default-property-inclusion: non_null  #为所有返回参数添加@JsonInclude(JsonInclude.Include.NON_NULL)
  server:
    context-path: /sell
-   port: 8080
+   port: 8081
 #日志配置
  logging:
    level: debug

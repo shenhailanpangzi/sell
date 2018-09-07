@@ -1,11 +1,14 @@
 package com.lanpang.sell.controller;
 
+import com.lanpang.sell.config.ServiceInfoUtil;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.client.RestTemplate;
+
+import javax.servlet.http.HttpServletRequest;
 
 /**
  * Created by 杨浩
@@ -30,7 +33,7 @@ public class WeixinController {
         log.info("response={}", response);
     }
     @GetMapping("/hello")
-    public String hello() {
-        return "hello!!";
+    public String hello(HttpServletRequest requet) {
+        return "hello!!当前端口是："+ServiceInfoUtil.getPort();
     }
 }
