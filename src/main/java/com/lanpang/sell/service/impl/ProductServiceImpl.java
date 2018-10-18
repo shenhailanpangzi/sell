@@ -110,5 +110,4 @@ public class ProductServiceImpl implements ProductService {
         productInfo.setProductStatus(ProductStatusEnum.DOWN.getCode());
         return repository.save(productInfo);
     }
-
 }

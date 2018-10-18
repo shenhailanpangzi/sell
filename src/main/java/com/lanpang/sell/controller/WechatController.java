@@ -41,7 +41,8 @@ public class WechatController {
         //1. 配置
         //2. 调用方法
         String url = projectUrlConfig.getWechatMpAuthorize() + "sell/wechat/userInfo";
-        String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_BASE, URLEncoder.encode(returnUrl));
+//        调用的url，获取用户权限是否弹窗，重定向 地址
+        String redirectUrl = wxMpService.oauth2buildAuthorizationUrl(url, WxConsts.OAUTH2_SCOPE_USER_INFO, URLEncoder.encode(returnUrl));
 
         log.info("【微信网页授权】获取code,result={}",redirectUrl);
         return "redirect:" + redirectUrl;
@@ -66,7 +67,7 @@ public class WechatController {
 
         String openId = wxMpOAuth2AccessToken.getOpenId();
         System.out.println("默认returnUrl："+returnUrl);
-        returnUrl = "http://192.168.43.140/#/";//虚拟机 地址
+        returnUrl = "http://localhost:8080/#/";//虚拟机 地址
         System.out.println("【微信网页授权openId】"+"redirect:" + returnUrl + "?openid=" + openId);
         return "redirect:" + returnUrl + "?openid=" + openId;
     }
